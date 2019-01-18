@@ -8,14 +8,8 @@
 
 import UIKit
 
-struct JsonTest: Decodable {
-    let id: Int
-    let name: String
-    let link: String
-    let imageUrl: String
-    //let number_of_lessons: Int
-}
 
+//根据json的对应解包结构
 struct Yao: Decodable {
     let amount: String?
     let yaoID: Int?
@@ -40,36 +34,72 @@ struct SH_json: Decodable {
 class JsonTable: UITableViewController {
 
     var fanglist = [SH_json]()
+    var fliterList = [SH_json]()
+    let seacherCon = UISearchController(searchResultsController: nil)
     
-    let attrs = [NSAttributedString.Key.foregroundColor: UIColor.red,
-                 NSAttributedString.Key.font: UIFont(name: "STSong", size: 21)!]
+
+    
+    //自定义大字体导航栏
+    let attrs = [NSAttributedString.Key.foregroundColor: UIColor.black,
+                 NSAttributedString.Key.font: UIFont(name: "Songti Tc", size: 35)!]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.title = "伤寒论"
         
-        //self.navigationController!.navigationBar.barStyle = .black
-        //self.navigationController!.navigationBar.isTranslucent = true
-        self.navigationController!.navigationBar.tintColor = #colorLiteral(red: 1, green: 0.99997437, blue: 0.9999912977, alpha: 1)
+        //设置导航栏大字体
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "伤寒论汤剂"
+        
+        //导航栏的颜色和返回的颜色
+        self.navigationController!.navigationBar.tintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         self.navigationController!.navigationBar.barTintColor = #colorLiteral(red: 1, green: 0.99997437, blue: 0.9999912977, alpha: 1)
 
-        
+        //自定义小字体导航栏
         self.navigationController?.navigationBar.titleTextAttributes =
             [NSAttributedString.Key.foregroundColor: UIColor.black,
-             NSAttributedString.Key.font: UIFont(name: "STSong", size: 25)!]
+             NSAttributedString.Key.font: UIFont(name: "Songti Tc", size: 25)!]
         
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black,
-                                                                        NSAttributedString.Key.font: UIFont(name: "STSong", size: 35)!]
+        navigationController?.navigationBar.largeTitleTextAttributes = attrs
+        
+        //搜索栏
+        seacherCon.searchResultsUpdater = self as? UISearchResultsUpdating
+        seacherCon.obscuresBackgroundDuringPresentation = false
+        seacherCon.searchBar.placeholder = "关键词"
+        
+        
+        navigationItem.searchController = seacherCon
+        definesPresentationContext = true
 
+        
+        //搜索栏是否一直存在
+        //navigationItem.hidesSearchBarWhenScrolling = false
         
         readJson()
         
     }
     
+    
+    //搜索相关func
+    func searchBarIsEmputy () -> Bool{
+        return seacherCon.searchBar.text?.isEmpty ?? true
+    }
+    
+    func isFiltering() -> Bool {
+        return seacherCon.isActive && !searchBarIsEmputy()
+    }
+    
+    func fliterContentforSearcheText(_ searchText: String, scope: String = "All"){
+        fliterList = fanglist.filter({( fang : SH_json) -> Bool in
+            return (fang.name?.lowercased().contains(searchText.lowercased()))!
+        })
+        tableView.reloadData()
+    }
+    
+    //读取在线jason
     func readJson(){
-        let urlString = "https://raw.githubusercontent.com/hh-in-zhuzhou/ShangHanLunIOS/master/shangHanLun_iOS/data/shangHanFang.json"
+        //从github读
+        let urlString = "https://raw.githubusercontent.com/xukongwen/swift_learn/master/my_game_1/data/SH_ty2.json"
         
         guard let url = URL(string: urlString) else { return }
         
@@ -81,7 +111,6 @@ class JsonTable: UITableViewController {
                     let oneJson = try JSONDecoder().decode([SH_json].self, from: data)
             
                     self.fanglist = oneJson
-                    //print(self.fanglist[1].standardYaoList[0]?.showName!)
                     self.tableView.reloadData()
                 } catch let jsonErr {
                     print(jsonErr)
@@ -101,23 +130,58 @@ class JsonTable: UITableViewController {
 //    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return fanglist.count
+       //搜索的行数
+        if isFiltering() {
+            return fliterList.count
+        }
+        
+        
+        return fanglist.count //有多少行
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
-        let fang = fanglist[indexPath.row]
+        let fang : SH_json
+        
+        //搜索过滤
+        if isFiltering() {
+            fang = fliterList[indexPath.row]
+        } else {
+            fang = fanglist[indexPath.row]
+        }
+        //显示每个cell的内容
         cell.textLabel?.text = fang.name
         cell.detailTextLabel?.text = fang.text
-        cell.textLabel?.font = UIFont.init(name: "STSong", size: 18)
+        cell.textLabel?.font = UIFont.init(name: "Songti Tc", size: 18)
         cell.detailTextLabel?.font = UIFont.init(name: "STSong", size: 14)
         
         return cell
       
     }
- 
+    
+    //点选了这个cell之后做什么
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let fang: SH_json
+        
+        if isFiltering() {
+            fang = fliterList[indexPath.row]
+        } else {
+            fang = fanglist[indexPath.row]
+        }
+        
+        //推送
+        performSegue(withIdentifier: "ListToFang", sender: fang)
+        
+    }
+    //把内容推送到下一个iview
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ListToFang" {
+            let destVC = segue.destination as! fangDetailView
+            destVC.fang = sender as? SH_json
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -164,4 +228,13 @@ class JsonTable: UITableViewController {
     }
     */
 
+}
+
+//检测搜索输入
+extension JsonTable: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        fliterContentforSearcheText(seacherCon.searchBar.text!)
+    }
 }

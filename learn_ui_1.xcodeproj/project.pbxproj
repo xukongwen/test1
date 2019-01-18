@@ -39,6 +39,9 @@
 		8377008421F059C400772208 /* Json_read2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377008321F059C400772208 /* Json_read2.swift */; };
 		837700A521F088C800772208 /* SH_ty2.json in Resources */ = {isa = PBXBuildFile; fileRef = 837700A421F088C700772208 /* SH_ty2.json */; };
 		837700A721F08E5300772208 /* SH_json1.json in Resources */ = {isa = PBXBuildFile; fileRef = 837700A621F08E5300772208 /* SH_json1.json */; };
+		837700A921F0B5A200772208 /* Songti.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 837700A821F0B5A200772208 /* Songti.ttc */; };
+		837700AB21F0B5AF00772208 /* wenyue.otf in Resources */ = {isa = PBXBuildFile; fileRef = 837700AA21F0B5AF00772208 /* wenyue.otf */; };
+		837700AD21F1645200772208 /* fangDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837700AC21F1645200772208 /* fangDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +79,9 @@
 		8377008321F059C400772208 /* Json_read2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Json_read2.swift; sourceTree = "<group>"; };
 		837700A421F088C700772208 /* SH_ty2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SH_ty2.json; sourceTree = "<group>"; };
 		837700A621F08E5300772208 /* SH_json1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SH_json1.json; sourceTree = "<group>"; };
+		837700A821F0B5A200772208 /* Songti.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Songti.ttc; sourceTree = "<group>"; };
+		837700AA21F0B5AF00772208 /* wenyue.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = wenyue.otf; sourceTree = "<group>"; };
+		837700AC21F1645200772208 /* fangDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fangDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,7 @@
 				8377008321F059C400772208 /* Json_read2.swift */,
 				8377007A21F01F3C00772208 /* DetailViewController.swift */,
 				8377004121F011C100772208 /* Main.storyboard */,
+				837700AC21F1645200772208 /* fangDetailView.swift */,
 				8377004421F011C200772208 /* Assets.xcassets */,
 				8377004621F011C200772208 /* LaunchScreen.storyboard */,
 				8377004921F011C200772208 /* Info.plist */,
@@ -155,6 +162,8 @@
 		8377007C21F0508800772208 /* font */ = {
 			isa = PBXGroup;
 			children = (
+				837700AA21F0B5AF00772208 /* wenyue.otf */,
+				837700A821F0B5A200772208 /* Songti.ttc */,
 				8377007D21F050A500772208 /* song.ttf */,
 			);
 			path = font;
@@ -229,6 +238,7 @@
 			files = (
 				8377006E21F0134900772208 /* xp_伏羲.png in Resources */,
 				8377006621F0134900772208 /* 三.png in Resources */,
+				837700AB21F0B5AF00772208 /* wenyue.otf in Resources */,
 				837700A721F08E5300772208 /* SH_json1.json in Resources */,
 				8377006C21F0134900772208 /* 母馬.png in Resources */,
 				8377007021F0134900772208 /* xp_很多馬.png in Resources */,
@@ -239,6 +249,7 @@
 				8377007321F0134900772208 /* 女神於聖杯.png in Resources */,
 				8377006D21F0134900772208 /* xp_很多貓.png in Resources */,
 				8377006921F0134900772208 /* 躺著玩遊戲.png in Resources */,
+				837700A921F0B5A200772208 /* Songti.ttc in Resources */,
 				8377007E21F050A500772208 /* song.ttf in Resources */,
 				8377004821F011C200772208 /* LaunchScreen.storyboard in Resources */,
 				8377006B21F0134900772208 /* 裸女們.png in Resources */,
@@ -265,6 +276,7 @@
 			files = (
 				8377008021F0549500772208 /* JsonTable.swift in Sources */,
 				8377007B21F01F3C00772208 /* DetailViewController.swift in Sources */,
+				837700AD21F1645200772208 /* fangDetailView.swift in Sources */,
 				8377008421F059C400772208 /* Json_read2.swift in Sources */,
 				8377008221F0590E00772208 /* Json_read1.swift in Sources */,
 				8377004021F011C100772208 /* ViewController.swift in Sources */,

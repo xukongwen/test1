@@ -10,8 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="song.ttf">
+        <array key="Songti.ttc">
             <string>STSong</string>
+        </array>
+        <array key="wenyue.otf">
+            <string>WenYue-GuDianMingChaoTi-NC-W5</string>
         </array>
     </customFonts>
     <scenes>
@@ -70,14 +73,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="i1S-2T-I2a">
-                                            <rect key="frame" x="15.999999999999998" y="0.0" width="30.333333333333332" height="22.333333333333332"/>
+                                            <rect key="frame" x="16" y="3" width="33" height="21.333333333333332"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name="STSong" family="STSong" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name="WenYue-GuDianMingChaoTi-NC-W5" family="WenYue GuDianMingChaoTi (Non-Commercial Use)" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="tO9-hG-U4x">
-                                            <rect key="frame" x="16" y="22.333333333333336" width="50" height="22.333333333333332"/>
+                                            <rect key="frame" x="16.000000000000004" y="24.333333333333329" width="53.333333333333336" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" name="STSong" family="STSong" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -88,15 +91,46 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="VnG-1e-sGE" id="7mb-o4-CEZ"/>
-                            <outlet property="delegate" destination="VnG-1e-sGE" id="Iol-IW-GT0"/>
+                            <outlet property="dataSource" destination="VnG-1e-sGE" id="QFW-KF-ZMO"/>
+                            <outlet property="delegate" destination="VnG-1e-sGE" id="A2H-81-9gY"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="f92-9A-j7A"/>
+                    <connections>
+                        <segue destination="HlS-wg-Wx8" kind="show" identifier="ListToFang" id="RM4-d3-9Tg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Xn-nj-DyQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4767.1999999999998" y="833.49753694581284"/>
+        </scene>
+        <!--fangDetailView-->
+        <scene sceneID="5Wm-gd-CkE">
+            <objects>
+                <viewController id="HlS-wg-Wx8" userLabel="fangDetailView" customClass="fangDetailView" customModule="learn_ui_1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VSX-ch-j0s">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="hi" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D95-Ej-opZ">
+                                <rect key="frame" x="26" y="388" width="323" height="454"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="STSong" family="STSong" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" enablesReturnKeyAutomatically="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="GdE-IT-sn4"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="fangtext" destination="D95-Ej-opZ" id="RFH-FW-eUW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OSU-bV-RQX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5564" y="832.75862068965523"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="APf-lj-sHv">

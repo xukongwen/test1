@@ -42,6 +42,12 @@
 		837700A921F0B5A200772208 /* Songti.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 837700A821F0B5A200772208 /* Songti.ttc */; };
 		837700AB21F0B5AF00772208 /* wenyue.otf in Resources */ = {isa = PBXBuildFile; fileRef = 837700AA21F0B5AF00772208 /* wenyue.otf */; };
 		837700AD21F1645200772208 /* fangDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837700AC21F1645200772208 /* fangDetailView.swift */; };
+		837700AF21F1BEDF00772208 /* yuanwenTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837700AE21F1BEDF00772208 /* yuanwenTableViewController.swift */; };
+		837700B121F1DD3F00772208 /* SH_book.json in Resources */ = {isa = PBXBuildFile; fileRef = 837700B021F1DD3F00772208 /* SH_book.json */; };
+		837700B321F2C74300772208 /* bookDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837700B221F2C74200772208 /* bookDetailTableViewController.swift */; };
+		837700B521F425B500772208 /* CollapsibleTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837700B421F425B500772208 /* CollapsibleTableViewHeader.swift */; };
+		837700B721F425FF00772208 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837700B621F425FF00772208 /* Extensions.swift */; };
+		837700B921F4285000772208 /* sectionsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837700B821F4285000772208 /* sectionsData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +88,12 @@
 		837700A821F0B5A200772208 /* Songti.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Songti.ttc; sourceTree = "<group>"; };
 		837700AA21F0B5AF00772208 /* wenyue.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = wenyue.otf; sourceTree = "<group>"; };
 		837700AC21F1645200772208 /* fangDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fangDetailView.swift; sourceTree = "<group>"; };
+		837700AE21F1BEDF00772208 /* yuanwenTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yuanwenTableViewController.swift; sourceTree = "<group>"; };
+		837700B021F1DD3F00772208 /* SH_book.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SH_book.json; sourceTree = "<group>"; };
+		837700B221F2C74200772208 /* bookDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookDetailTableViewController.swift; sourceTree = "<group>"; };
+		837700B421F425B500772208 /* CollapsibleTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleTableViewHeader.swift; sourceTree = "<group>"; };
+		837700B621F425FF00772208 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		837700B821F4285000772208 /* sectionsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sectionsData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,7 +135,12 @@
 				8377008321F059C400772208 /* Json_read2.swift */,
 				8377007A21F01F3C00772208 /* DetailViewController.swift */,
 				8377004121F011C100772208 /* Main.storyboard */,
+				837700AE21F1BEDF00772208 /* yuanwenTableViewController.swift */,
+				837700B821F4285000772208 /* sectionsData.swift */,
 				837700AC21F1645200772208 /* fangDetailView.swift */,
+				837700B221F2C74200772208 /* bookDetailTableViewController.swift */,
+				837700B421F425B500772208 /* CollapsibleTableViewHeader.swift */,
+				837700B621F425FF00772208 /* Extensions.swift */,
 				8377004421F011C200772208 /* Assets.xcassets */,
 				8377004621F011C200772208 /* LaunchScreen.storyboard */,
 				8377004921F011C200772208 /* Info.plist */,
@@ -174,6 +191,7 @@
 			children = (
 				837700A421F088C700772208 /* SH_ty2.json */,
 				837700A621F08E5300772208 /* SH_json1.json */,
+				837700B021F1DD3F00772208 /* SH_book.json */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -258,6 +276,7 @@
 				8377006F21F0134900772208 /* xp_李耳.png in Resources */,
 				8377006721F0134900772208 /* 裸女.png in Resources */,
 				8377007821F0134900772208 /* 牛.png in Resources */,
+				837700B121F1DD3F00772208 /* SH_book.json in Resources */,
 				8377006821F0134900772208 /* 生小孩.png in Resources */,
 				8377007721F0134900772208 /* xp_老婆.png in Resources */,
 				8377004321F011C100772208 /* Main.storyboard in Resources */,
@@ -274,13 +293,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				837700B521F425B500772208 /* CollapsibleTableViewHeader.swift in Sources */,
 				8377008021F0549500772208 /* JsonTable.swift in Sources */,
+				837700B321F2C74300772208 /* bookDetailTableViewController.swift in Sources */,
 				8377007B21F01F3C00772208 /* DetailViewController.swift in Sources */,
+				837700AF21F1BEDF00772208 /* yuanwenTableViewController.swift in Sources */,
 				837700AD21F1645200772208 /* fangDetailView.swift in Sources */,
 				8377008421F059C400772208 /* Json_read2.swift in Sources */,
 				8377008221F0590E00772208 /* Json_read1.swift in Sources */,
 				8377004021F011C100772208 /* ViewController.swift in Sources */,
+				837700B721F425FF00772208 /* Extensions.swift in Sources */,
 				8377003E21F011C100772208 /* AppDelegate.swift in Sources */,
+				837700B921F4285000772208 /* sectionsData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

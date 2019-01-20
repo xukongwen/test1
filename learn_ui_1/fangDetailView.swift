@@ -20,6 +20,7 @@ class fangDetailView: UIViewController {
         title = fang?.name
         navigationItem.largeTitleDisplayMode = .automatic
         
+        
         setupText()
 
         // Do any additional setup after loading the view.
@@ -31,6 +32,8 @@ class fangDetailView: UIViewController {
         fangtext.text = fang?.text
         
     }
+    
+    
 
     /*
     // MARK: - Navigation

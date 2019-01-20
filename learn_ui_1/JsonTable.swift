@@ -31,11 +31,16 @@ struct SH_json: Decodable {
 }
 
 
+
+
+
 class JsonTable: UITableViewController {
 
     var fanglist = [SH_json]()
     var fliterList = [SH_json]()
     let seacherCon = UISearchController(searchResultsController: nil)
+    
+    
     
 
     
@@ -75,7 +80,8 @@ class JsonTable: UITableViewController {
         //搜索栏是否一直存在
         //navigationItem.hidesSearchBarWhenScrolling = false
         
-        readJson()
+        //readJson()
+        readFileJson(jsonFile: "SH_json1.json")
         
     }
     
@@ -96,7 +102,7 @@ class JsonTable: UITableViewController {
         tableView.reloadData()
     }
     
-    //读取在线jason
+    //读在线jason
     func readJson(){
         //从github读
         let urlString = "https://raw.githubusercontent.com/xukongwen/swift_learn/master/my_game_1/data/SH_ty2.json"
@@ -119,6 +125,43 @@ class JsonTable: UITableViewController {
             
             }.resume()
     }
+    //读本地json
+    func readFileJson(jsonFile: String) {
+        
+        guard let fileURL = Bundle.main.url(forResource: jsonFile, withExtension: nil),
+            let data = try? Data.init(contentsOf: fileURL) else{
+                fatalError("`JSON File Fetch Failed`")
+        }
+        
+        URLSession.shared.dataTask(with: fileURL) { (data, response, err) in
+            DispatchQueue.main.async {
+                guard let data = data else { return }
+                
+                do {
+                    let oneJson = try JSONDecoder().decode([SH_json].self, from: data)
+                    
+                    self.fanglist = oneJson
+                  
+                    self.tableView.reloadData()
+                } catch let jsonErr {
+                    print(jsonErr)
+                }
+            }
+            
+            }.resume()
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     // MARK: - Table view data source
     
@@ -152,6 +195,7 @@ class JsonTable: UITableViewController {
         }
         //显示每个cell的内容
         cell.textLabel?.text = fang.name
+        //print(fang.name!)
         cell.detailTextLabel?.text = fang.text
         cell.textLabel?.font = UIFont.init(name: "Songti Tc", size: 18)
         cell.detailTextLabel?.font = UIFont.init(name: "STSong", size: 14)

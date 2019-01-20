@@ -25,6 +25,8 @@ class yuanwenTableViewController: UITableViewController {
     var sectionPingmai = [SH_book]()
     var sectionZhengzhi = [SH_book]()
     
+    var sectionJk = [SH_book]()
+    
     
     //自定义大字体导航栏
     let attrs = [NSAttributedString.Key.foregroundColor: UIColor.black,
@@ -33,6 +35,7 @@ class yuanwenTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         readFileJson_book(jsonFile: "SH_book.json")
+        readFileJson_jk_book(jsonFile: "SH_jk_book.json")
         
         
         //self.tableView.reloadData()
@@ -104,9 +107,34 @@ class yuanwenTableViewController: UITableViewController {
             }
 
             }.resume()
-
-
-
+    }
+    
+    func readFileJson_jk_book(jsonFile: String) {
+        
+        guard let fileURL = Bundle.main.url(forResource: jsonFile, withExtension: nil),
+            let data = try? Data.init(contentsOf: fileURL) else{
+                fatalError("`JSON File Fetch Failed`")
+        }
+        
+        URLSession.shared.dataTask(with: fileURL) { (data, response, err) in
+            DispatchQueue.main.async {
+                guard let data = data else { return }
+                
+                do {
+                    let oneJson = try JSONDecoder().decode([SH_book].self, from: data)
+                    
+                    //self.bookList = oneJson
+                    //制作section的分类，可以完全手动
+                    
+                    //制作sections
+                    self.sectionsData.append(Section(name: "金匮要略", items: oneJson))
+                    self.tableView.reloadData()
+                } catch let jsonErr {
+                    print(jsonErr)
+                }
+            }
+            
+            }.resume()
     }
     
     //搜索相关func

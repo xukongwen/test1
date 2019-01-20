@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83199DFF21F47A72009D33E9 /* SH_jk_json1.json in Resources */ = {isa = PBXBuildFile; fileRef = 83199DFE21F47A72009D33E9 /* SH_jk_json1.json */; };
+		83199E0121F47C0B009D33E9 /* SH_jk_book.json in Resources */ = {isa = PBXBuildFile; fileRef = 83199E0021F47C0B009D33E9 /* SH_jk_book.json */; };
+		83199E0321F47C59009D33E9 /* SH_yao.json in Resources */ = {isa = PBXBuildFile; fileRef = 83199E0221F47C59009D33E9 /* SH_yao.json */; };
 		8377003E21F011C100772208 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377003D21F011C100772208 /* AppDelegate.swift */; };
 		8377004021F011C100772208 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377003F21F011C100772208 /* ViewController.swift */; };
 		8377004321F011C100772208 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8377004121F011C100772208 /* Main.storyboard */; };
@@ -51,6 +54,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		83199DFE21F47A72009D33E9 /* SH_jk_json1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SH_jk_json1.json; sourceTree = "<group>"; };
+		83199E0021F47C0B009D33E9 /* SH_jk_book.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SH_jk_book.json; sourceTree = "<group>"; };
+		83199E0221F47C59009D33E9 /* SH_yao.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SH_yao.json; sourceTree = "<group>"; };
 		8377003A21F011C100772208 /* learn_ui_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = learn_ui_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377003D21F011C100772208 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8377003F21F011C100772208 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -193,7 +199,10 @@
 			children = (
 				837700A421F088C700772208 /* SH_ty2.json */,
 				837700A621F08E5300772208 /* SH_json1.json */,
+				83199DFE21F47A72009D33E9 /* SH_jk_json1.json */,
 				837700B021F1DD3F00772208 /* SH_book.json */,
+				83199E0021F47C0B009D33E9 /* SH_jk_book.json */,
+				83199E0221F47C59009D33E9 /* SH_yao.json */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -277,8 +286,11 @@
 				8377007221F0134900772208 /* 生小孩 2.png in Resources */,
 				8377006F21F0134900772208 /* xp_李耳.png in Resources */,
 				8377006721F0134900772208 /* 裸女.png in Resources */,
+				83199DFF21F47A72009D33E9 /* SH_jk_json1.json in Resources */,
+				83199E0321F47C59009D33E9 /* SH_yao.json in Resources */,
 				8377007821F0134900772208 /* 牛.png in Resources */,
 				837700B121F1DD3F00772208 /* SH_book.json in Resources */,
+				83199E0121F47C0B009D33E9 /* SH_jk_book.json in Resources */,
 				8377006821F0134900772208 /* 生小孩.png in Resources */,
 				8377007721F0134900772208 /* xp_老婆.png in Resources */,
 				8377004321F011C100772208 /* Main.storyboard in Resources */,

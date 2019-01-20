@@ -27,6 +27,18 @@ struct Section {
     }
 }
 
+struct Section_jk {
+    var name: String
+    var items: [SH_json]
+    var collapsed: Bool
+    
+    init(name: String, items: [SH_json], collapsed: Bool = false) {
+        self.name = name
+        self.items = items
+        self.collapsed = collapsed
+    }
+}
+
 
 
 

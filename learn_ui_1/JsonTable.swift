@@ -23,6 +23,7 @@ struct SH_json: Decodable {
     let drinkNum: Int?
     let height: Int?
     let standardYaoList: [Yao?]
+    //let extraYaoList: [Yao?]
     let text: String?
     let fangList: [String?]
     let yaoList: [String?]
@@ -34,12 +35,15 @@ struct SH_json: Decodable {
 
 
 
+
+
 class JsonTable: UITableViewController {
 
     var fanglist = [SH_json]()
     var fliterList = [SH_json]()
     let seacherCon = UISearchController(searchResultsController: nil)
     
+    var sectionData = [Section_jk]()
     
     
 
@@ -82,6 +86,7 @@ class JsonTable: UITableViewController {
         
         //readJson()
         readFileJson(jsonFile: "SH_json1.json")
+        readFileJson_jk(jsonFile: "SH_jk_json1.json")
         
     }
     
@@ -141,6 +146,9 @@ class JsonTable: UITableViewController {
                     let oneJson = try JSONDecoder().decode([SH_json].self, from: data)
                     
                     self.fanglist = oneJson
+                    self.sectionData = [
+                        Section_jk(name: "伤寒方剂", items: oneJson)
+                    ]
                   
                     self.tableView.reloadData()
                 } catch let jsonErr {
@@ -149,9 +157,32 @@ class JsonTable: UITableViewController {
             }
             
             }.resume()
+    }
+    
+    func readFileJson_jk(jsonFile: String) {
         
+        guard let fileURL = Bundle.main.url(forResource: jsonFile, withExtension: nil),
+            let data = try? Data.init(contentsOf: fileURL) else{
+                fatalError("`JSON File Fetch Failed`")
+        }
         
-        
+        URLSession.shared.dataTask(with: fileURL) { (data, response, err) in
+            DispatchQueue.main.async {
+                guard let data = data else { return }
+                
+                do {
+                    let oneJson = try JSONDecoder().decode([SH_json].self, from: data)
+                    
+                    //self.fanglist = oneJson
+                    self.sectionData.append(Section_jk(name: "金匮要略方剂", items: oneJson))
+                    
+                    self.tableView.reloadData()
+                } catch let jsonErr {
+                    print(jsonErr)
+                }
+            }
+            
+            }.resume()
     }
     
     
@@ -167,10 +198,10 @@ class JsonTable: UITableViewController {
     
    
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return sectionData.count
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        //搜索的行数
@@ -179,7 +210,7 @@ class JsonTable: UITableViewController {
         }
         
         
-        return fanglist.count //有多少行
+        return sectionData[section].collapsed ? 0 : sectionData[section].items.count //有多少行
     }
 
     
@@ -191,7 +222,7 @@ class JsonTable: UITableViewController {
         if isFiltering() {
             fang = fliterList[indexPath.row]
         } else {
-            fang = fanglist[indexPath.row]
+            fang = sectionData[indexPath.section].items[indexPath.row]
         }
         //显示每个cell的内容
         cell.textLabel?.text = fang.name
@@ -212,7 +243,7 @@ class JsonTable: UITableViewController {
         if isFiltering() {
             fang = fliterList[indexPath.row]
         } else {
-            fang = fanglist[indexPath.row]
+            fang = sectionData[indexPath.section].items[indexPath.row]
         }
         
         //推送
@@ -225,6 +256,27 @@ class JsonTable: UITableViewController {
             let destVC = segue.destination as! fangDetailView
             destVC.fang = sender as? SH_json
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as? CollapsibleTableViewHeader ?? CollapsibleTableViewHeader(reuseIdentifier: "header")
+        
+        header.titleLabel.text = sectionData[section].name
+        header.arrowLabel.text = ">"
+        header.setCollapsed(sectionData[section].collapsed)
+        
+        header.section = section
+        header.delegate = self as? CollapsibleTableViewHeaderDelegate
+        
+        return header
+    }
+    //header的一些设置
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44.0
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 1.0
     }
 
     /*
@@ -281,4 +333,19 @@ extension JsonTable: UISearchResultsUpdating {
         
         fliterContentforSearcheText(seacherCon.searchBar.text!)
     }
+}
+
+
+extension JsonTable: CollapsibleTableViewHeaderDelegate {
+    
+    func toggleSection(_ header: CollapsibleTableViewHeader, section: Int) {
+        let collapsed = !sectionData[section].collapsed
+        
+        // Toggle collapse
+        sectionData[section].collapsed = collapsed
+        header.setCollapsed(collapsed)
+        
+        tableView.reloadSections(NSIndexSet(index: section) as IndexSet, with: .automatic)
+    }
+    
 }

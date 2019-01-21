@@ -32,7 +32,9 @@ struct SH_json: Decodable {
 }
 
 
-
+protocol ImportantFlag {
+    func didImportantFlag(fang: SH_json)
+}
 
 
 
@@ -44,7 +46,7 @@ class JsonTable: UITableViewController {
     let seacherCon = UISearchController(searchResultsController: nil)
     
     var sectionData = [Section_jk]()
-    
+    var delegate = shoucangTableViewController()
     
 
     
@@ -196,7 +198,48 @@ class JsonTable: UITableViewController {
 
     // MARK: - Table view data source
     
-   
+   //初始化swip功能
+//    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//
+//        let important = importantAction(at: indexPath)
+//        return UISwipeActionsConfiguration(actions: [important])
+//    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt: IndexPath) -> [UITableViewRowAction]? {
+        let more = UITableViewRowAction(style: .normal, title: "More") { action, index in
+            print("more button tapped")
+        }
+        more.backgroundColor = .lightGray
+        
+        let favorite = UITableViewRowAction(style: .normal, title: "收藏") { action, index in
+            let tempfang = self.sectionData[editActionsForRowAt.section].items[editActionsForRowAt.row]
+            print(self.delegate)
+            self.delegate.didImportantFlag(fang: tempfang)
+            
+        }
+        favorite.backgroundColor = .orange
+        
+        let share = UITableViewRowAction(style: .normal, title: "分享") { action, index in
+            print("share button tapped")
+        }
+        share.backgroundColor = .lightGray
+        
+        return [share, favorite]
+    }
+    
+    
+    func importantAction(at IndexPath: IndexPath) -> UIContextualAction {
+        //let todo = sectionData[IndexPath.section].items[IndexPath.row]
+        var isImportant = false
+        let action = UIContextualAction(style: .normal, title: "收藏") { (action, view, comletion) in
+            isImportant = !isImportant
+            comletion(true)
+        }
+        //action.image = UIImage(named: "shoucang1")
+        action.backgroundColor = isImportant ? .purple : .gray
+        print(isImportant)
+        return action
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections

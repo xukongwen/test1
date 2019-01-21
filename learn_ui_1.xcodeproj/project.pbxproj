@@ -10,6 +10,7 @@
 		83199DFF21F47A72009D33E9 /* SH_jk_json1.json in Resources */ = {isa = PBXBuildFile; fileRef = 83199DFE21F47A72009D33E9 /* SH_jk_json1.json */; };
 		83199E0121F47C0B009D33E9 /* SH_jk_book.json in Resources */ = {isa = PBXBuildFile; fileRef = 83199E0021F47C0B009D33E9 /* SH_jk_book.json */; };
 		83199E0321F47C59009D33E9 /* SH_yao.json in Resources */ = {isa = PBXBuildFile; fileRef = 83199E0221F47C59009D33E9 /* SH_yao.json */; };
+		83199E0521F56C1A009D33E9 /* shoucangTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83199E0421F56C1A009D33E9 /* shoucangTableViewController.swift */; };
 		8377003E21F011C100772208 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377003D21F011C100772208 /* AppDelegate.swift */; };
 		8377004021F011C100772208 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377003F21F011C100772208 /* ViewController.swift */; };
 		8377004321F011C100772208 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8377004121F011C100772208 /* Main.storyboard */; };
@@ -57,6 +58,7 @@
 		83199DFE21F47A72009D33E9 /* SH_jk_json1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SH_jk_json1.json; sourceTree = "<group>"; };
 		83199E0021F47C0B009D33E9 /* SH_jk_book.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SH_jk_book.json; sourceTree = "<group>"; };
 		83199E0221F47C59009D33E9 /* SH_yao.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SH_yao.json; sourceTree = "<group>"; };
+		83199E0421F56C1A009D33E9 /* shoucangTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shoucangTableViewController.swift; sourceTree = "<group>"; };
 		8377003A21F011C100772208 /* learn_ui_1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = learn_ui_1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8377003D21F011C100772208 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8377003F21F011C100772208 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				8377008321F059C400772208 /* Json_read2.swift */,
 				8377007A21F01F3C00772208 /* DetailViewController.swift */,
 				8377004121F011C100772208 /* Main.storyboard */,
+				83199E0421F56C1A009D33E9 /* shoucangTableViewController.swift */,
 				837700AE21F1BEDF00772208 /* yuanwenTableViewController.swift */,
 				837700B821F4285000772208 /* sectionsData.swift */,
 				837700AC21F1645200772208 /* fangDetailView.swift */,
@@ -311,6 +314,7 @@
 				8377008021F0549500772208 /* JsonTable.swift in Sources */,
 				837700B321F2C74300772208 /* bookDetailTableViewController.swift in Sources */,
 				8377007B21F01F3C00772208 /* DetailViewController.swift in Sources */,
+				83199E0521F56C1A009D33E9 /* shoucangTableViewController.swift in Sources */,
 				837700AF21F1BEDF00772208 /* yuanwenTableViewController.swift in Sources */,
 				837700AD21F1645200772208 /* fangDetailView.swift in Sources */,
 				8377008421F059C400772208 /* Json_read2.swift in Sources */,

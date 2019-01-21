@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="song.ttf">
+        <array key="Songti.ttc">
             <string>STSong</string>
         </array>
         <array key="wenyue.otf">
@@ -56,10 +56,10 @@
             </objects>
             <point key="canvasLocation" x="997.60000000000002" y="132.26600985221674"/>
         </scene>
-        <!--Json_table-->
+        <!--FangList-->
         <scene sceneID="d2K-iY-dB8">
             <objects>
-                <tableViewController id="VnG-1e-sGE" userLabel="Json_table" customClass="JsonTable" customModule="learn_ui_1" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="fanglist" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VnG-1e-sGE" userLabel="FangList" customClass="JsonTable" customModule="learn_ui_1" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1Di-it-0K8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -285,7 +285,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="4Ko-iT-WBy">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="4Ko-iT-WBy">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Ko-iT-WBy" id="kHR-qE-oiN">
@@ -296,7 +296,7 @@
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="pL1-Am-kAQ" id="4bp-Ua-svn"/>
-                            <outlet property="delegate" destination="pL1-Am-kAQ" id="eiu-aA-EeV"/>
+                            <outlet property="delegate" destination="pL1-Am-kAQ" id="UQ2-rn-255"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="NyO-G0-Eu6"/>
@@ -305,21 +305,30 @@
             </objects>
             <point key="canvasLocation" x="4764" y="2386"/>
         </scene>
-        <!--Root View Controller-->
+        <!--收藏-->
         <scene sceneID="KOA-j1-Kfc">
             <objects>
-                <tableViewController id="blg-ZV-WSb" sceneMemberID="viewController">
+                <tableViewController id="blg-ZV-WSb" customClass="shoucangTableViewController" customModule="learn_ui_1" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gHm-UX-q3V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="AOz-3h-IMg">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="5rQ-F1-9sc" style="IBUITableViewCellStyleDefault" id="AOz-3h-IMg">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AOz-3h-IMg" id="SJ2-3V-jum">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5rQ-F1-9sc">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -328,11 +337,11 @@
                             <outlet property="delegate" destination="blg-ZV-WSb" id="PlN-97-J7m"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="aGN-oK-eXB"/>
+                    <navigationItem key="navigationItem" title="收藏" id="aGN-oK-eXB"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHl-Vv-HgB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4791" y="3103"/>
+            <point key="canvasLocation" x="4764" y="3103"/>
         </scene>
         <!--收藏-->
         <scene sceneID="aZN-6E-65t">
@@ -391,6 +400,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="82P-8k-x4L" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7V5-BJ-iaB">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
